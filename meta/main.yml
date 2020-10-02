@@ -1,0 +1,7 @@
+---
+galaxy_info:
+  author: Andrey Pishchulin
+  description: "Install NTP"
+  company: none
+
+dependencies: []
