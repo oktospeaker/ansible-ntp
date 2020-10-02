@@ -2,7 +2,7 @@
 - name: "{{ ntp_service_name }} restart"
   become: true
   shell: systemctl daemon-reload
-  notify: {{ ntp_service_name }} restart service
+  notify: "{{ ntp_service_name }} restart service"
 
 - name: "{{ ntp_service_name }} restart service"
   become: true
@@ -10,3 +10,13 @@
     name: "{{ ntp_service_name }}"
     state: restarted
     enabled: yes
+  notify: firewall-cmd add-port
+
+- name: firewall-cmd add-port
+  become: true
+  shell: firewall-cmd --zone=public --permanent --add-port=123/udp
+  notify: service firewalld reload
+
+- name: service firewalld reload
+  become: true
+  shell: systemctl restart firewalld

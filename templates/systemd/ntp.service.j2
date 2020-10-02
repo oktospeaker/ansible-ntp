@@ -8,7 +8,6 @@ Restart=always
 ExecStartPre=-/usr/bin/docker rm {{ ntp_service_name }}
 ExecStart=/usr/bin/docker run \
         --rm \
-        --user {{ ntp_user_uid }} \
         -p {{ ntp_host_port }}:{{ ntp_container_port }}/{{ port_type }} \
         --cap-add=SYS_TIME \
         -e NTP_SERVERS="{{ global_ntp_servers }}" \

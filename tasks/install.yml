@@ -1,7 +1,7 @@
 #Init NTP-server service
 ---
 - name: Create ntp service user
-  user: name={{ ntp_user_name }} uid={{ ntp_user_uid }} comment="NTP-docker" state=present
+  user: name={{ ntp_user_name }} uid={{ ntp_user_uid }} shell={{ ntp_user_shell }} comment="NTP-docker" state=present
 
 - name: {{ ntp_service_name }} service config on host
   template:
