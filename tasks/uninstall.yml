@@ -2,7 +2,7 @@
 ---
 - name: "Stop {{ ntp_service_name }}"
   service:
-    name: {{ ntp_service_name }}
+    name: "{{ ntp_service_name }}"
     enabled: no
     state: stopped
   ignore_errors: yes
