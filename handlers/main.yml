@@ -1,0 +1,12 @@
+---
+- name: "{{ ntp_service_name }} restart"
+  become: true
+  shell: systemctl daemon-reload
+  notify: {{ ntp_service_name }} restart service
+
+- name: "{{ ntp_service_name }} restart service"
+  become: true
+  service:
+    name: "{{ ntp_service_name }}"
+    state: restarted
+    enabled: yes

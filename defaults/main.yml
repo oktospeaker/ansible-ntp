@@ -1,1 +1,12 @@
 ---
+ntp_service_name: ntp-docker
+uninstall_service: false
+ntp_user_name: ntp-docker
+ntp_user_uid: 18001
+ntp_host_port: 123
+ntp_container_port: 123
+port_type: udp
+global_ntp_servers: 162.159.200.1
+docker_service_name: NTP-server
+docker_image: cturra/ntp
+
