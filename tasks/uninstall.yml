@@ -1,9 +1,6 @@
 #Remove NTP-server service
 ---
-- name: Remove NTP service user
-  user: name={{ ntp_user_name }} uid={{ ntp_user_uid }} shell={{ ntp_user_shell }} comment="NTP-docker" state=absent
-
-- name: "Stop {{ ntp_service_name }}
+- name: "Stop {{ ntp_service_name }}"
   service:
     name: {{ ntp_service_name }}
     enabled: no
@@ -14,4 +11,4 @@
   file:
     path: "/etc/systemd/system/{{ ntp_service_name }}.service"
     state: absent
-  notify: {{ ntp_service_name }} restart uninstall
+  notify: "{{ ntp_service_name }} restart uninstall"

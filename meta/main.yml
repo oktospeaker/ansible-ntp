@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: Andrey Pishchulin
-  description: "Install NTP"
+  author: oktospeaker@gmail.com
+  description: "Install NTP-server in docker container"
   company: none
 
 dependencies: []
