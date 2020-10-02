@@ -22,7 +22,7 @@
   shell: systemctl daemon-reload
   notify: reset-failed
 
-- name: "reset-failed"
+- name: reset-failed
   become: true
   service: systemctl reset-failed
   notify: firewall-cmd remove-port
