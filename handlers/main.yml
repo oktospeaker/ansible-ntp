@@ -20,9 +20,9 @@
 - name: "{{ ntp_service_name }} restart uninstall"
   become: true
   shell: systemctl daemon-reload
-  notify: reset-failed
+  notify: reset failed
 
-- name: reset-failed
+- name: "reset failed"
   become: true
   service: systemctl reset-failed
   notify: firewall-cmd remove-port
