@@ -3,10 +3,9 @@
   become: yes
   become_user: root
   include: install.yml
-  when: (not uninstall_service)
 
 - name: "Unistallation {{ ntp_service_name }}"
   become: yes
   become_user: root
   include: uninstall.yml
-  when: uninstall_service
+  when: uninstall_service | bool

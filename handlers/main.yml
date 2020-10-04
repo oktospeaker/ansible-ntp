@@ -14,22 +14,22 @@
 
 - name: firewall-cmd add-port
   become: true
-  shell: firewall-cmd --zone=public --permanent --add-port=123/udp
+  shell: firewall-cmd --zone=public --permanent --add-port={{ ntp_host_port }}/{{ port_type }}
   notify: service firewalld reload
 
 - name: "{{ ntp_service_name }} restart uninstall"
   become: true
   shell: systemctl daemon-reload
-  notify: reset failed
+  notify: reset-failed
 
-- name: "reset failed"
+- name: reset-failed
   become: true
-  service: systemctl reset-failed
+  shell: systemctl reset-failed
   notify: firewall-cmd remove-port
 
 - name: firewall-cmd remove-port
   become: true
-  shell: firewall-cmd --zone=public --permanent --remove-port=123/udp
+  shell: firewall-cmd --zone=public --permanent --remove-port={{ ntp_host_port }}/{{ port_type }}
   notify: service firewalld reload
 
 - name: service firewalld reload

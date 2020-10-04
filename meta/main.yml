@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: oktospeaker@gmail.com
-  description: "Install NTP-server in docker container"
+  description: "Install/Uninstall NTP-server docker container"
   company: none
 
 dependencies: []

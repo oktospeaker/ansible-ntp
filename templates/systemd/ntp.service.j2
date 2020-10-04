@@ -1,5 +1,5 @@
 [Unit]
-Description=NTP-server Container
+Description=NTP-server docker container
 Requires=docker.service
 After=docker.service
 
@@ -11,9 +11,9 @@ ExecStart=/usr/bin/docker run \
         -p {{ ntp_host_port }}:{{ ntp_container_port }}/{{ port_type }} \
         --cap-add=SYS_TIME \
         -e NTP_SERVERS="{{ global_ntp_servers }}" \
-        --name {{ docker_service_name }} \
+        --name {{ ntp_service_name }} \
         {{ docker_image }}
-ExecStop=/usr/bin/docker stop -t 5 {{ ntp_service_name }}
+ExecStop=/usr/bin/docker stop -t 1 {{ ntp_service_name }}
 
 [Install]
 WantedBy=multi-user.target
