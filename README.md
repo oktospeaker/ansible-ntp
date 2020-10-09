@@ -4,7 +4,7 @@ Deploy docker container with NTP-server based on cturra/ntp (https://hub.docker.
 ## Role variables
 
 | Variable | Default value | Description |
-| :---         |     :---:      |          ---: |
+| :---:        |     :---:      |         :---: |
 | ntp_service_name   | ntp-docker      | Service name in OS   |
 | uninstall_service     | false       | Uninstallation marker      |
 | ntp_host_port     | 123       | Host network port      |
